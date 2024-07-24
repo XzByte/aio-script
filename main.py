@@ -5,7 +5,6 @@ import time
 from datetime import datetime
 from scan.scanfixapache import scanfix_apache2
 
-
 now = datetime.now()
 timestamp = now.replace(microsecond=0).strftime("%Y-%m-%d_%H-%M-%S")
 base_dir = os.path.dirname(os.path.realpath(__file__))

@@ -22,8 +22,14 @@ def check_directory_listing():
             global_scans += 1
             file_path = os.path.join(root, name)
             fix = ""
-            with open(file_path, 'r') as file:
-                content = file.read()
+            try:
+                # Attempt to read with utf-8 first
+                with open(file_path, 'r', encoding='utf-8') as file:
+                    content = file.read()
+            except UnicodeDecodeError:
+                # Fallback to latin-1 if utf-8 fails
+                with open(file_path, 'r', encoding='latin-1') as file:
+                    content = file.read()
 
             if 'Options Indexes' in content:
                 alert_message = "ALERT: Directory listing enabled."
