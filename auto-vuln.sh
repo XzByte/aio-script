@@ -37,3 +37,4 @@ uninstall_fail2ban
 sudo systemctl reload apache2
 
 echo "Configuration changes applied successfully."
+echo "after running this script, tried to configure fail2ban using configure-fail2ban.sh"
